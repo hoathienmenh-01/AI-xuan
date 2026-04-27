@@ -106,13 +106,14 @@
 
   $('#project-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     try {
       const created = await API.projects.create({
         name: fd.get('name'),
         description: fd.get('description'),
       });
-      e.currentTarget.reset();
+      form.reset();
       await loadProjects();
       setActiveProject(created.id);
     } catch (err) {
@@ -227,7 +228,8 @@
       alert('Pick a project first.');
       return;
     }
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     try {
       await API.prompts.create({
         projectId: state.activeProjectId,
@@ -236,7 +238,7 @@
         style: fd.get('style'),
         negative: fd.get('negative'),
       });
-      e.currentTarget.reset();
+      form.reset();
       $('#prompt-preview-out').classList.add('hidden');
       await loadPrompts();
     } catch (err) {
@@ -245,7 +247,7 @@
   });
 
   $('#prompt-preview').addEventListener('click', async () => {
-    const form = $('#prompt-form');
+    const form = document.getElementById('prompt-form');
     const fd = new FormData(form);
     try {
       const { final } = await API.prompts.preview({
