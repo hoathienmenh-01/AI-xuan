@@ -1,0 +1,11 @@
+node_modules/
+data/flow.db
+data/flow.db-*
+data/outputs/
+data/references/
+data/screenshots/
+data/browser-profile/
+logs/
+.env
+.DS_Store
+*.log

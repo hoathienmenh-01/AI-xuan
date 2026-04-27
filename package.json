@@ -1,0 +1,22 @@
+{
+  "name": "flow-image-production-tool",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local tool to drive Google Flow (labs.google/fx/vi/tools/flow) with Playwright. Manual login, automated prompt + reference + generate workflow, job queue, SQLite metadata, output gallery.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "install:browsers": "playwright install chromium"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.19.2",
+    "multer": "^2.0.0",
+    "nanoid": "^3.3.7",
+    "playwright": "^1.47.2"
+  }
+}
